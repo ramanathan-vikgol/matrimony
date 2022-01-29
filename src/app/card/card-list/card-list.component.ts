@@ -29,7 +29,8 @@ export class CardListComponent implements OnInit {
       images:
         'https://images.pexels.com/photos/2387869/pexels-photo-2387869.jpeg',
       name: 'Priyanka',
-      address: '27 Years,5 ft 2 in,Tamil,Nair',
+      address:
+        '27 Years,5 ft 2 in,Tamil,Nair 27 Years,5 ft 2 in,Tamil,Nair 27 Years,5 ft 2 in,Tamil,Nair 27 Years,5 ft 2 in,Tamil,Nair',
       id: 1,
     },
     {

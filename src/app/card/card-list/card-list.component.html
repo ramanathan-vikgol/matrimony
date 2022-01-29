@@ -11,13 +11,18 @@
               <img
                 (click)="nextPage(data.id)"
                 [src]="data.images"
-                style="object-fit: cover; width: 100%; height: 100%"
+                style="
+                  object-fit: cover;
+                  width: 100%;
+                  height: 100%;
+                  cursor: pointer;
+                "
               />
               <div class="card-body text-center">
                 <p class="text-primary">
                   <b>{{ data.name }}</b>
                 </p>
-                <p>
+                <p class="text-wrap-1line">
                   <b>{{ data.address }}</b>
                 </p>
                 <div>

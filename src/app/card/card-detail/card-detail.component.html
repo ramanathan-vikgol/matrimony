@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 mt-4">
-      <h2 class="text-center text-primary"><b>Information</b></h2>
+      <h2 class="text-center text-warning"><b>Information</b></h2>
     </div>
     <div class="col-md-12 mt-3">
       <div>
@@ -12,11 +12,11 @@
         />
       </div>
       <div class="text-center mt-3">
-        <p class="text-grey">
+        <p class="text-primary">
           <b>{{ card_detail?.name }}</b>
         </p>
-        <p class="text-grey">
-          <b>{{ card_detail?.address }}</b>
+        <p [innerHTML]="card_detail?.address" class="text-grey">
+          <b></b>
         </p>
       </div>
     </div>
