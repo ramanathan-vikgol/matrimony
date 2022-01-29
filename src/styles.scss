@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0 !important;
+  font-family: "Lucida Sans" !important;
+}
+.row {
+  margin: 0 !important;
+}
+// width & height can be whatever you want
+.swiper {
+  height: 400px !important;
+  width: 600px;
+}
+.swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 250px !important;
+  position: relative;
+  transition-property: transform;
+}
+.bdr-radius {
+  border-radius: 10px;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
