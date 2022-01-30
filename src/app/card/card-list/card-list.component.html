@@ -1,13 +1,22 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h4 class="text-center text-warning mt-4"><b>Card List</b></h4>
+      <h4 class="justify-content-evenly d-flex text-warning mt-4">
+        <b>Card List</b>
+        <span class=""
+          ><i
+            class="feather icon-refresh-ccw"
+            (click)="refresh()"
+            style="cursor: pointer"
+          ></i
+        ></span>
+      </h4>
     </div>
     <div class="d-flex justify-content-center mb-3 mt-3">
       <div class="card" style="box-shadow: 0 1px 6px rgb(32 33 36 / 28%)">
         <swiper class="swiper" [config]="config">
           <div class="swiper-wrapper">
-            <div class="swiper-slide" *ngFor="let data of card">
+            <div class="swiper-slide" *ngFor="let data of card; let i = index">
               <img
                 (click)="nextPage(data.id)"
                 [src]="data.images"
@@ -35,7 +44,7 @@
                   </button>
                   <span class="px-3"
                     ><button
-                      (click)="nextPage('')"
+                      (click)="nextPage('', i)"
                       type="button"
                       class="bdr-radius btn btn-danger"
                     >

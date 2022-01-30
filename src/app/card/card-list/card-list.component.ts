@@ -75,7 +75,13 @@ export class CardListComponent implements OnInit {
     });
   }
 
-  nextPage(id: any) {
+  refresh() {
+    this.router.navigate(['']).then(() => {
+      window.location.reload();
+    });
+  }
+
+  nextPage(id: any, i?: any) {
     if (id) {
       this._snackBar.open('Interested', 'Dismiss', {
         horizontalPosition: 'center',
@@ -89,6 +95,7 @@ export class CardListComponent implements OnInit {
         verticalPosition: 'top',
         duration: 2000,
       });
+      this.card.splice(i, 1);
     }
   }
 }
