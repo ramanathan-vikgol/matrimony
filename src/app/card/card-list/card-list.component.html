@@ -14,7 +14,7 @@
     </div>
     <div class="d-flex justify-content-center mb-3 mt-3">
       <div class="card" style="box-shadow: 0 1px 6px rgb(32 33 36 / 28%)">
-        <swiper class="swiper" [config]="config">
+        <swiper class="swiper" [config]="config" #usefulSwiper>
           <div class="swiper-wrapper">
             <div class="swiper-slide" *ngFor="let data of card; let i = index">
               <img
@@ -59,8 +59,8 @@
             <div></div>
           </div>
           <!-- <div class="swiper-pagination"></div> -->
-          <!-- <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div> -->
+          <!-- <div (click)="nextSlide()" class="swiper-button-next"></div>
+          <div (click)="previousSlide()" class="swiper-button-prev"></div> -->
         </swiper>
       </div>
     </div>

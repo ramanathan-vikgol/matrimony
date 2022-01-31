@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { SwiperOptions } from 'swiper';
 import {
@@ -6,12 +6,16 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import { SwiperComponent } from 'ngx-useful-swiper';
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.scss'],
 })
 export class CardListComponent implements OnInit {
+  @ViewChild('usefulSwiper', { static: false }) usefulSwiper:
+    | SwiperComponent
+    | any;
   config: SwiperOptions = {
     pagination: {
       el: '.swiper-pagination',
@@ -22,6 +26,34 @@ export class CardListComponent implements OnInit {
       prevEl: '.swiper-button-prev',
     },
     spaceBetween: 30,
+    on: {
+      slideNextTransitionStart: () => {
+        // console.log(
+        //   'slideChange Event: Active Slide Index = ',
+        //   this.usefulSwiper.swiper.activeIndex
+        // );
+        this._snackBar.open('Interested', 'Dismiss', {
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          duration: 2000,
+        });
+        // this.router.navigate([
+        //   '/card-detail',
+        //   this.card[this.usefulSwiper.swiper.activeIndex - 1].id,
+        // ]);
+      },
+      slidePrevTransitionStart: () => {
+        this._snackBar.open('Not Interested', 'Dismiss', {
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          duration: 2000,
+        });
+        this.card.splice(this.usefulSwiper.swiper.activeIndex - 1, 1);
+      },
+      slideChangeTransitionEnd: () => {
+        console.log('slideChange Event');
+      },
+    },
   };
 
   card: any = [
@@ -97,5 +129,13 @@ export class CardListComponent implements OnInit {
       });
       this.card.splice(i, 1);
     }
+  }
+
+  nextSlide() {
+    this.usefulSwiper.swiper.slideNext();
+  }
+
+  previousSlide() {
+    this.usefulSwiper.swiper.slidePrev();
   }
 }
